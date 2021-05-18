@@ -1,0 +1,18 @@
+@import "normalize";
+@import "colors";
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: $c-background;
+    background-image: url(../assets/background_elements.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.main_container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
