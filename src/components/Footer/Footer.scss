@@ -1,0 +1,10 @@
+@import "../../scss/colors";
+
+.footer_wrapper {
+    color: $c-font-footer;
+    display: flex;
+    justify-content:space-between;
+    align-items: flex-end;
+    font-size: 12px;
+    letter-spacing: .4px;
+}
