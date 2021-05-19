@@ -1,0 +1,53 @@
+.illustration-wrapper {
+  position: relative;
+  width: 375px;
+  height: 372px;
+
+  .rocket-wrapper {
+    position: absolute;
+    z-index: 999;
+    top: 236px;
+    left: 195px;
+
+    .rocket {
+      width: 102px;
+      height: 140px;
+      position: absolute;
+      top: -300px;
+      right: -35px;
+      z-index: 999;
+    }
+
+    .landingGear {
+      width: 68px;
+      height: 23px;
+      position: absolute;
+      top: -180px;
+      right: -18px;
+    }
+
+    .smoke2 {
+      width: 65px;
+      height: 62px;
+      position: absolute;
+
+      top: -222px;
+      right: 44px;
+    }
+
+    .smoke1 {
+      width: 52px;
+      height: 50px;
+      position: absolute;
+      top: -205px;
+      right: -66px;
+    }
+  }
+
+  .planet {
+    width: 375px;
+    height: 372px;
+    position: relative;
+    bottom: 0;
+  }
+}
