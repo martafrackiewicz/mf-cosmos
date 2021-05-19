@@ -1,3 +1,4 @@
+import { useState } from "react";
 import planet from "../../assets/images/planet.png";
 import landingGear from "../../assets/images/landing_gear.png";
 import rocket from "../../assets/images/rocket.png";
@@ -6,15 +7,42 @@ import smoke2 from "../../assets/images/smoke_2.png";
 import "./Illustration.scss";
 
 const Illustration = () => {
+  const [flying, setFlying] = useState(false);
+  const [bouncing, setBouncing] = useState(true);
+
+  const launchRocket = () => {
+    setBouncing(false);
+    setFlying(true);
+  };
+
+  const landRocket = () => {
+    setBouncing(true);
+    setFlying(false);
+  };
+
   return (
-    <div className="illustration-wrapper">
-      <div className="rocket-wrapper">
-        <img src={rocket} className="rocket" alt="rocket"></img>
-        <img src={landingGear} className="landingGear" alt="landing_gear"></img>
-        <img src={smoke2} className="smoke2" alt="smoke"></img>
-        <img src={smoke1} className="smoke1" alt="smoke"></img>
+    <div>
+      <div className="illustration-wrapper">
+        <div
+          className={
+            flying
+              ? "rocket-wrapper flying"
+              : bouncing && "rocket-wrapper bouncing"
+          }
+          onAnimationEnd={() => landRocket()}
+        >
+          <img src={rocket} className="rocket" alt="rocket"></img>
+          <img
+            src={landingGear}
+            className="landingGear"
+            alt="landing_gear"
+          ></img>
+          <img src={smoke2} className="smoke2" alt="smoke"></img>
+          <img src={smoke1} className="smoke1" alt="smoke"></img>
+        </div>
+        <img src={planet} className="planet" alt="planet"></img>
       </div>
-      <img src={planet} className="planet" alt="planet"></img>
+      <button onClick={() => launchRocket()}>Launch Rocket!</button>
     </div>
   );
 };
