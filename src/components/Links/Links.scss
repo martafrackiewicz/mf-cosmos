@@ -1,0 +1,8 @@
+.links_wrapper {
+    width: 350px;
+    margin: 100px 100px 120px 100px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 32px;
+    column-gap: 30px;
+}

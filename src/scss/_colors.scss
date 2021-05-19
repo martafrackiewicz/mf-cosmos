@@ -1,2 +1,9 @@
 $c-background: #221B3A;
 $c-font-footer: #8D7FBC;
+$c-font-primary: #FFFFFF;
+
+
+$card-background-gradient: linear-gradient(360deg, #2B224A 0%, rgba(43, 34, 74, 0) 100%);
+:export {
+    gradient: $card-background-gradient;
+}
