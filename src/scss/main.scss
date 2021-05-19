@@ -1,5 +1,6 @@
 @import "normalize";
 @import "colors";
+@import "fonts";
 
 * {
     box-sizing: border-box;
@@ -10,6 +11,7 @@ body {
     background-image: url(../assets/background_elements.svg);
     background-repeat: no-repeat;
     background-size: cover;
+    font-family: $font-primary;
 }
 
 .main_container {
