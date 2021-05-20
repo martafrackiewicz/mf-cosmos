@@ -1,7 +1,15 @@
+.planet-section-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
 .illustration-wrapper {
   position: relative;
   width: 375px;
   height: 372px;
+  margin-bottom: 24px;
 
   .rocket-wrapper {
     position: absolute;

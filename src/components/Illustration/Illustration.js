@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Button from "../Button/Button";
 import planet from "../../assets/images/planet.png";
 import landingGear from "../../assets/images/landing_gear.png";
 import rocket from "../../assets/images/rocket.png";
@@ -21,7 +22,7 @@ const Illustration = () => {
   };
 
   return (
-    <div>
+    <div className="planet-section-wrapper">
       <div className="illustration-wrapper">
         <div
           className={
@@ -42,7 +43,7 @@ const Illustration = () => {
         </div>
         <img src={planet} className="planet" alt="planet"></img>
       </div>
-      <button onClick={() => launchRocket()}>Launch Rocket!</button>
+      <Button launchRocket={launchRocket} />
     </div>
   );
 };
