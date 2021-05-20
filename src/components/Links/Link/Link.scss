@@ -13,12 +13,29 @@
 
   &-text {
     font-weight: 600;
-    color: $c-font-primary;
     line-height: 20px;
     font-size: 14px;
     position: absolute;
     bottom: 24px;
     left: 50%;
     transform: translate(-50%, 0);
+    color: $c-font-primary;
+  }
+}
+
+.link-card.gradient {
+  background-image: $card-background-gradient;
+
+  & .link-text {
+    transition: .4s;
+  }
+
+  &:hover {
+    background-image: $card-background-gradient-hover;
+  }
+
+  &:hover .link-text {
+    top: 50%;
+    transform: translate(-50%, -50%);
   }
 }
