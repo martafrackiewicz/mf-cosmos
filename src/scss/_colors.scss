@@ -5,3 +5,19 @@ $c-font-primary: #FFFFFF;
 
 $card-background-gradient: linear-gradient(360deg, #2B224A 0%, rgba(43, 34, 74, 0) 100%);
 $card-background-gradient-hover: linear-gradient(0deg, rgba(43, 34, 74, 0.92) 7.69%, rgba(70, 58, 113, 0.92) 100%);
+
+$c-modal-background: linear-gradient(0deg, #2B224A, #2B224A),
+linear-gradient(0deg, #FFFFFF, #FFFFFF);
+
+$c-modal-gradient: linear-gradient(180deg, rgba(43, 34, 74, 0) 0%, #2B224A 100%);
+
+$c-modal-border: #342957;
+$c-modal-shadow: rgba(22, 13, 49, 0.4);
+
+$c-modal-body-header: #342A56;
+$c-modal-body-header-active: #251D42;
+$c-modal-body-header-font: #A094C6;
+$c-modal-body-content-font: #D2CBE9;
+
+$c-modal-scrollbar-thumb: #53477D;
+$c-modal-scrollbar-track: #221A3C;

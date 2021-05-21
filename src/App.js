@@ -1,20 +1,33 @@
+import { useState } from "react";
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
 import Links from "./components/Links/Links";
 import Illustration from "./components/Illustration/Illustration";
+import Modal from "./components/Modal/Modal";
 import "./App.scss";
 
 const App = () => {
+  const [showModal, setShowModal] = useState(false);
+
+  const handleOpenModal = () => {
+    setShowModal(true);
+  };
+
+  const handleHideModal = () => {
+    setShowModal(false);
+  };
+
   return (
     <div className="main_container">
       <Navbar />
       <div className="main_section_wrapper">
-        <Links />
+        <Links handleOpenModal={handleOpenModal} />
         <Illustration />
+        <Modal showModal={showModal} handleHideModal={handleHideModal} />
       </div>
       <Footer />
     </div>
   );
-}
+};
 
 export default App;
