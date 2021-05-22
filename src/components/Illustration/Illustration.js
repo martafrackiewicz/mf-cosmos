@@ -43,7 +43,7 @@ const Illustration = () => {
         </div>
         <img src={planet} className="planet" alt="planet"></img>
       </div>
-      <Button launchRocket={launchRocket} />
+      <Button launchRocket={launchRocket} flying={flying} />
     </div>
   );
 };

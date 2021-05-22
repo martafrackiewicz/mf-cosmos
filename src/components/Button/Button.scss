@@ -5,8 +5,12 @@
   width: 184px;
   color: $c-font-primary;
   font-weight: 600;
-  background-color: $c-button;
+  background-color: $c-button-primary;
   border-radius: 8px;
   outline: none;
-  
+
+  &.active {
+    background-color: $c-button-secondary;
+    cursor: not-allowed;
+  }
 }
