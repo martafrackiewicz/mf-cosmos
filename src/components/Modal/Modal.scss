@@ -67,9 +67,24 @@ $scrollbar-width: 4px;
           font-weight: 600;
           padding: 10px 16px;
           border-radius: 4px;
+          position: relative;
 
-          &:hover {
+          &:hover,
+          &.active {
             background-color: $c-modal-body-header-active;
+            .title-icon {
+              display: inline;
+              height: 16px;
+              width: 16px;
+              position: absolute;
+              bottom: 50%;
+              right: 10%;
+              transform: translate(50%, 50%);
+            }
+          }
+
+          .title-icon {
+            display: none;
           }
         }
       }
