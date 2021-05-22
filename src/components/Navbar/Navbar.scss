@@ -1,3 +1,9 @@
 .navbar_wrapper {
-    margin-top: 36px;
+    position: relative;
+    .navbar_link {
+        .navbar_logo {
+        position: absolute;
+        top: 36px;
+    }
+  }
 }
