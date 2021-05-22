@@ -11,8 +11,8 @@ const Modal = ({ card, showModal, handleHideModal }) => {
   const API_URL = process.env.REACT_APP_API_URL;
 
   const [buttonActive, setButtonActive] = useState({
-    buttonName: "",
-    sorting: "",
+    id: "",
+    sorting: ""
   });
 
   const [loading, setLoading] = useState(false);
@@ -50,8 +50,8 @@ const Modal = ({ card, showModal, handleHideModal }) => {
     });
   };
 
-  const getIcon = (buttonName) => {
-    if (buttonActive.buttonName === buttonName) {
+  const getIcon = (id) => {
+    if (buttonActive.id === id) {
       if (buttonActive.sorting === "") {
         return arrows;
       } else if (buttonActive.sorting === "ascending") {
@@ -66,19 +66,19 @@ const Modal = ({ card, showModal, handleHideModal }) => {
   const handleSort = (e) => {
     let sortedData = [...data];
     let sorting = buttonActive.sorting;
-    if (buttonActive.buttonName !== e.target.innerText) {
+    if (buttonActive.id !== e.target.id) {
       sorting = "";
     }
     if (sorting === "") {
       sorting = "ascending";
-      sortedData = sort(sortedData, e.target.innerText);
+      sortedData = sort(sortedData, e.target.id);
     } else if (sorting === "ascending") {
       sorting = "descending";
-      sortedData = sort(sortedData, e.target.innerText).reverse();
-    } else if (buttonActive.sorting === "descending") {
+      sortedData = sort(sortedData, e.target.id).reverse();
+    } else if (sorting === "descending") {
       sorting = "";
     }
-    setButtonActive({ buttonName: e.target.innerText, sorting: sorting });
+    setButtonActive({ id: e.target.id, sorting: sorting });
     setSortedData(sortedData);
   };
 
@@ -100,6 +100,7 @@ const Modal = ({ card, showModal, handleHideModal }) => {
           <div className="modal-body-table-header">
             <div className="modal-body-table-col">
               <div
+                id={cards[card].firstColumn}
                 className={
                   buttonActive.buttonName === cards[card].firstColumnTitle
                     ? "modal-body-table-col-title active"
@@ -107,9 +108,11 @@ const Modal = ({ card, showModal, handleHideModal }) => {
                 }
                 onClick={(e) => handleSort(e)}
               >
-                <span className="title-text">{cards[card].firstColumnTitle}</span>
+                <span className="title-text">
+                  {cards[card].firstColumnTitle}
+                </span>
                 <img
-                  src={getIcon(cards[card].firstColumnTitle)}
+                  src={getIcon(cards[card].firstColumn)}
                   alt=""
                   className="title-icon"
                 ></img>
@@ -117,6 +120,7 @@ const Modal = ({ card, showModal, handleHideModal }) => {
             </div>
             <div className="modal-body-table-col">
               <div
+                id={cards[card].secondColumn}
                 className={
                   buttonActive.buttonName === cards[card].secondColumnTitle
                     ? "modal-body-table-col-title active"
@@ -128,44 +132,47 @@ const Modal = ({ card, showModal, handleHideModal }) => {
                   {cards[card].secondColumnTitle}
                 </span>
                 <img
-                  src={getIcon(cards[card].secondColumnTitle)}
+                  src={getIcon(cards[card].secondColumn)}
                   alt=""
                   className="title-icon"
                 ></img>
               </div>
             </div>
           </div>
-          {loading ? <span className="modal-body-table-content loading">Loading...</span> :
-          <div className="modal-body-table-content">
-            <div className="modal-body-table-col">
-              <ul className="modal-body-table-content-list">
-                {sortedData.map((element, id) => {
-                  return (
-                    <li
-                      key={id}
-                      className="modal-body-table-content-list-element"
-                    >
-                      {element[cards[card].firstColumn]}
-                    </li>
-                  );
-                })}
-              </ul>
+          {loading ? (
+            <span className="modal-body-table-content loading">Loading...</span>
+          ) : (
+            <div className="modal-body-table-content">
+              <div className="modal-body-table-col">
+                <ul className="modal-body-table-content-list">
+                  {sortedData.map((element, id) => {
+                    return (
+                      <li
+                        key={id}
+                        className="modal-body-table-content-list-element"
+                      >
+                        {element[cards[card].firstColumn]}
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+              <div className="modal-body-table-col">
+                <ul className="modal-body-table-content-list">
+                  {sortedData.map((element, id) => {
+                    return (
+                      <li
+                        key={id}
+                        className="modal-body-table-content-list-element"
+                      >
+                        {element[cards[card].secondColumn]}
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
             </div>
-            <div className="modal-body-table-col">
-              <ul className="modal-body-table-content-list">
-                {sortedData.map((element, id) => {
-                  return (
-                    <li
-                      key={id}
-                      className="modal-body-table-content-list-element"
-                    >
-                      {element[cards[card].secondColumn]}
-                    </li>
-                  );
-                })}
-              </ul>
-            </div>
-          </div>}
+          )}
         </div>
       </div>
     </div>
