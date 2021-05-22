@@ -15,18 +15,27 @@ const Modal = ({ card, showModal, handleHideModal }) => {
     sorting: "",
   });
 
+  const [loading, setLoading] = useState(false);
+
   const [data, setData] = useState([]);
   const [sortedData, setSortedData] = useState([]);
 
   useEffect(() => {
     if (card) {
       fetch(`${API_URL}${cards[card].endpoint}`)
+      .then(response => {
+        if (response.ok) {
+          return response;
+        }
+      })
         .then((response) => response.json())
         .then((data) => {
           setData(data);
           setSortedData(data);
-        });
-    }
+          setLoading(false);
+        })
+        setLoading(true)
+    } 
   }, [card, API_URL]);
 
   const sort = (list, property) => {
@@ -126,6 +135,7 @@ const Modal = ({ card, showModal, handleHideModal }) => {
               </div>
             </div>
           </div>
+          {loading ? <span className="modal-body-table-content loading">Loading...</span> :
           <div className="modal-body-table-content">
             <div className="modal-body-table-col">
               <ul className="modal-body-table-content-list">
@@ -155,7 +165,7 @@ const Modal = ({ card, showModal, handleHideModal }) => {
                 })}
               </ul>
             </div>
-          </div>
+          </div>}
         </div>
       </div>
     </div>

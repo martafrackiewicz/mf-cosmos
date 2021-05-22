@@ -128,3 +128,12 @@ $scrollbar-width: 4px;
   background-color: $c-modal-scrollbar-thumb;
   border-radius: 8px;
 }
+
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 20px;
+  color: $c-font-primary;
+}
