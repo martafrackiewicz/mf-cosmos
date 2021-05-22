@@ -1,0 +1,31 @@
+{
+  "files": {
+    "main.css": "/mf-cosmos/static/css/main.b75fef6e.chunk.css",
+    "main.js": "/mf-cosmos/static/js/main.16a5c91a.chunk.js",
+    "main.js.map": "/mf-cosmos/static/js/main.16a5c91a.chunk.js.map",
+    "runtime-main.js": "/mf-cosmos/static/js/runtime-main.114fbec3.js",
+    "runtime-main.js.map": "/mf-cosmos/static/js/runtime-main.114fbec3.js.map",
+    "static/js/2.faf5a41b.chunk.js": "/mf-cosmos/static/js/2.faf5a41b.chunk.js",
+    "static/js/2.faf5a41b.chunk.js.map": "/mf-cosmos/static/js/2.faf5a41b.chunk.js.map",
+    "index.html": "/mf-cosmos/index.html",
+    "static/css/main.b75fef6e.chunk.css.map": "/mf-cosmos/static/css/main.b75fef6e.chunk.css.map",
+    "static/js/2.faf5a41b.chunk.js.LICENSE.txt": "/mf-cosmos/static/js/2.faf5a41b.chunk.js.LICENSE.txt",
+    "static/media/main.scss": "/mf-cosmos/static/media/background_elements.11a703c4.svg",
+    "static/media/capsules.c3ed6e78.png": "/mf-cosmos/static/media/capsules.c3ed6e78.png",
+    "static/media/Modal.scss": "/mf-cosmos/static/media/close.b3444cf1.svg",
+    "static/media/crew.b7919d15.png": "/mf-cosmos/static/media/crew.b7919d15.png",
+    "static/media/ic16-arrow-down.6b6cc46f.svg": "/mf-cosmos/static/media/ic16-arrow-down.6b6cc46f.svg",
+    "static/media/ic16-arrow-up.de82c2b9.svg": "/mf-cosmos/static/media/ic16-arrow-up.de82c2b9.svg",
+    "static/media/ic16-import-export.2c19fce6.svg": "/mf-cosmos/static/media/ic16-import-export.2c19fce6.svg",
+    "static/media/logo.d135bb48.svg": "/mf-cosmos/static/media/logo.d135bb48.svg",
+    "static/media/planet.372d5785.png": "/mf-cosmos/static/media/planet.372d5785.png",
+    "static/media/rockets.9fc0d1a3.png": "/mf-cosmos/static/media/rockets.9fc0d1a3.png",
+    "static/media/starlink.2ef3f2ee.png": "/mf-cosmos/static/media/starlink.2ef3f2ee.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.114fbec3.js",
+    "static/js/2.faf5a41b.chunk.js",
+    "static/css/main.b75fef6e.chunk.css",
+    "static/js/main.16a5c91a.chunk.js"
+  ]
+}
