@@ -8,8 +8,10 @@ import "./App.scss";
 
 const App = () => {
   const [showModal, setShowModal] = useState(false);
+  const [card, setCard] = useState("");
 
-  const handleOpenModal = () => {
+  const handleOpenModal = (card) => {
+    setCard(card);
     setShowModal(true);
   };
 
@@ -23,7 +25,7 @@ const App = () => {
       <div className="main_section_wrapper">
         <Links handleOpenModal={handleOpenModal} />
         <Illustration />
-        <Modal showModal={showModal} handleHideModal={handleHideModal} />
+        <Modal card={card} showModal={showModal} handleHideModal={handleHideModal} />
       </div>
       <Footer />
     </div>

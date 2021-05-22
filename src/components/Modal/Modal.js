@@ -1,10 +1,15 @@
 import { useState, useEffect } from "react";
+import  {cards} from "../cards";
 import "./Modal.scss";
 import arrows from "../../assets/icons/ic16-import-export.svg";
 import arrowDown from "../../assets/icons/ic16-arrow-down.svg";
 import arrowUp from "../../assets/icons/ic16-arrow-up.svg";
 
-const Modal = ({ showModal, handleHideModal }) => {
+
+const Modal = ({ card, showModal, handleHideModal }) => {
+
+  const API_URL = process.env.REACT_APP_API_URL;
+
   const [buttonActive, setButtonActive] = useState({
     buttonName: "",
     sorting: "",
@@ -13,19 +18,16 @@ const Modal = ({ showModal, handleHideModal }) => {
   const [data, setData] = useState([]);
   const [sortedData, setSortedData] = useState([]);
 
-  const getCapsules = () => {
-    fetch("https://api.spacexdata.com/v4/capsules")
-      .then((response) => response.json())
-      .then((data) => {
-        console.log("getcapsules");
-        setData(data);
-        setSortedData(data);
-      });
-  };
-
   useEffect(() => {
-    getCapsules();
-  }, []);
+    if (card) {
+      fetch(`${API_URL}${cards[card].endpoint}`)
+        .then((response) => response.json())
+        .then((data) => {
+          setData(data);
+          setSortedData(data);
+        });
+    }
+  }, [card, API_URL]);
 
   const sort = (list, property) => {
     return list.sort((a, b) => {
@@ -78,7 +80,7 @@ const Modal = ({ showModal, handleHideModal }) => {
   return (
     <div className="modal">
       <div className="modal-header">
-        <p className="modal-header-title">Starlink</p>
+        <p className="modal-header-title">{cards[card].cardTitle}</p>
         <button
           onClick={() => handleHideModal()}
           className="modal-header-button-close"
@@ -90,28 +92,34 @@ const Modal = ({ showModal, handleHideModal }) => {
             <div className="modal-body-table-col">
               <div
                 className={
-                  buttonActive.buttonName === "type"
+                  buttonActive.buttonName === cards[card].firstColumnTitle
                     ? "modal-body-table-col-title active"
                     : "modal-body-table-col-title"
                 }
                 onClick={(e) => handleSort(e)}
               >
-                <span className="title-text">type</span>
-                <img src={getIcon("type")} alt="" className="title-icon"></img>
+                <span className="title-text">{cards[card].firstColumnTitle}</span>
+                <img
+                  src={getIcon(cards[card].firstColumnTitle)}
+                  alt=""
+                  className="title-icon"
+                ></img>
               </div>
             </div>
             <div className="modal-body-table-col">
               <div
                 className={
-                  buttonActive.buttonName === "status"
+                  buttonActive.buttonName === cards[card].secondColumnTitle
                     ? "modal-body-table-col-title active"
                     : "modal-body-table-col-title"
                 }
                 onClick={(e) => handleSort(e)}
               >
-                <span className="title-text">status</span>
+                <span className="title-text">
+                  {cards[card].secondColumnTitle}
+                </span>
                 <img
-                  src={getIcon("status")}
+                  src={getIcon(cards[card].secondColumnTitle)}
                   alt=""
                   className="title-icon"
                 ></img>
@@ -123,8 +131,11 @@ const Modal = ({ showModal, handleHideModal }) => {
               <ul className="modal-body-table-content-list">
                 {sortedData.map((element, id) => {
                   return (
-                    <li key={id} className="modal-body-table-content-list-element">
-                      {element.type}
+                    <li
+                      key={id}
+                      className="modal-body-table-content-list-element"
+                    >
+                      {element[cards[card].firstColumn]}
                     </li>
                   );
                 })}
@@ -134,8 +145,11 @@ const Modal = ({ showModal, handleHideModal }) => {
               <ul className="modal-body-table-content-list">
                 {sortedData.map((element, id) => {
                   return (
-                    <li key={id} className="modal-body-table-content-list-element">
-                      {element.status}
+                    <li
+                      key={id}
+                      className="modal-body-table-content-list-element"
+                    >
+                      {element[cards[card].secondColumn]}
                     </li>
                   );
                 })}
